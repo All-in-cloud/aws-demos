@@ -1,0 +1,8 @@
+#!/bin/bash
+set -x
+yum update -y
+yum install -y git
+cd /home/ec2-user
+git clone https://github.com/vsechnovcloudu/aws.demos
+cd DynamoDB
+/home/ec2-user/.nvm/versions/node/v6.11.5/bin/node /home/ec2-user/aws.demos/DynamoDB/indexec2.js
