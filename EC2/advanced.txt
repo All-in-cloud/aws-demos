@@ -1,6 +1,6 @@
 #!/bin/bash
 set -x
+yum install epel-release
 yum update -y
-yum install -y httpd
-service httpd start
-chkconfig httpd on
+yum install nginx -y
+nginx
