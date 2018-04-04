@@ -2,6 +2,7 @@
 ### We use the data value of the ami id found in inputs.tf, and the subnet_id defined in inputs.tf
 
 resource "aws_instance" "web" {
+  create_before_destroy = "true"
   ami           = "${data.aws_ami.amazonlinux.id}"
   instance_type = "t2.micro"
   subnet_id     = "${var.SUBNET}"
