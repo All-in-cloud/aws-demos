@@ -57,6 +57,12 @@ typings/
 # dotenv environment variables file
 .env
 
-# Terraform garbage
-.terraform
-terraform.tfstate
+#  Local .terraform directories
+**/.terraform/*
+
+# .tfstate files
+*.tfstate
+*.tfstate.*
+
+# .tfvars files
+*.tfvars
