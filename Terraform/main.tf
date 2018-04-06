@@ -6,7 +6,7 @@ resource "aws_instance" "web" {
   ami           = "${data.aws_ami.amazonlinux.id}"
   instance_type = "t2.micro"
   subnet_id     = "${var.SUBNET}"
-  key_name      = "zu697-frankfurt"
+  key_name      = "mykey"
   associate_public_ip_address = "true"
   vpc_security_group_ids = ["sg-0fcb64bc759982301"]
 

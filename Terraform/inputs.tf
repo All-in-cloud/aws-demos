@@ -23,5 +23,5 @@ data "aws_ami" "amazonlinux" {
 variable "SUBNET" {
   type        = "string"
   description = "(Mandatory) Subnet to deploy within."
-  default     = "subnet-026e8193a76e08618"
+  default     = "yoursubnet"
 }
