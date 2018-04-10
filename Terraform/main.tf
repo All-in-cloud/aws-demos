@@ -14,8 +14,8 @@ resource "aws_instance" "web" {
     Name = "HelloWorld"
   }
 
-  lifecycle {
-    create_before_destroy = "true"
-  }
+  # lifecycle {
+  #   create_before_destroy = "true"
+  # }
 
 }
