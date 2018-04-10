@@ -8,7 +8,7 @@ resource "aws_instance" "web" {
   subnet_id     = "${var.SUBNET}"
   key_name      = "mykey"
   associate_public_ip_address = "true"
-  vpc_security_group_ids = ["sg-0fcb64bc759982301"]
+  vpc_security_group_ids = ["${var.SECURITYGROUP}"]
 
   tags {
     Name = "HelloWorld"

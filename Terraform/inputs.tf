@@ -25,3 +25,9 @@ variable "SUBNET" {
   description = "(Mandatory) Subnet to deploy within."
   default     = "yoursubnet"
 }
+
+variable "SECURITYGROUP" {
+  type        = "string"
+  description = "Open ports on the instance."
+  default     = "sg-0fcb64bc759982301"
+}
