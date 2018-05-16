@@ -13,27 +13,21 @@ var docClient = new AWS.DynamoDB.DocumentClient();
 
 console.log("Attempting to write something to DynamoDB...");
 
-setInterval(writeRecord, 1000);
-
 function randomString(length) {
   var possible = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
   var text = "";
   for (var i = 0; i < length; i++)
   text += possible.charAt(Math.floor(Math.random() * possible.length));
-
   return text;
 }
 
 function writeRecord(){
-  var randomAgility = randomString(10);
-  var randomUsername = randomString(5);
-  console.log(randomAgility, randomUsername);
 
   var params = {
-    TableName: "training-table",
+    TableName: "<<TABLE NAME>>",
     Item: {
-      "username": randomUsername,
-      "agility": randomAgility
+      "name": randomString(5),
+      "data": randomString(10)
     }
   };
 
@@ -41,8 +35,11 @@ function writeRecord(){
     if (err) {
       console.error("Unable to write item. Error JSON:", JSON.stringify(err, null, 2));
     } else {
+      console.log(params.Item.name, params.Item.data);
       console.log("PutItem succeeded!");
     }
   });
 
 }
+
+setInterval(writeRecord, 1000);
