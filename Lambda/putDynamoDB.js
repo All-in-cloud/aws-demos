@@ -1,4 +1,4 @@
-// Read from dynamodb
+// Write to dynamodb
 
 'use strict';
 
@@ -22,28 +22,30 @@ exports.handler = (event, context, callback) =>
     var text = "";
     for (var i = 0; i < length; i++)
     text += possible.charAt(Math.floor(Math.random() * possible.length));
-
     return text;
   }
 
   function writeRecord(){
-  var randomAgility = randomString(10);
-  var randomUsername = randomString(5);
-  console.log(randomAgility, randomUsername);
 
   var params = {
-    TableName: "training-table",
+    TableName: "<<TABLE NAME>>",
     Item: {
-      "username": randomUsername,
-      "agility": randomAgility
+      "name": event.name,
+      "data": randomString(10)
     }
   };
 
   docClient.put(params, function(err, data) {
     if (err) {
       console.error("Unable to write item. Error JSON:", JSON.stringify(err, null, 2));
+      callback(err, null);
     } else {
       console.log("PutItem succeeded!");
+      let response = {
+        "name": event.name,
+        "status": "Successfully created!"
+      }
+      callback(null, response)
     }
   });
 

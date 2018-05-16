@@ -14,9 +14,9 @@ exports.handler = (event, context, callback) =>
 {
 
   var params = {
-    TableName: "training-table",
+    TableName: "<<TABLE NAME>>",
     Key: {
-      "username": event.user
+      "name": event.params.querystring.name
     }
   };
 
