@@ -1,6 +1,7 @@
 ### Deploy a resource of type "aws_instance"" with the logical name "Web".
 ### We use the data value of the ami id found in inputs.tf, and the subnet_id defined in inputs.tf
 
+
 resource "aws_instance" "web" {
 
   ami           = "${data.aws_ami.amazonlinux.id}"
@@ -11,7 +12,7 @@ resource "aws_instance" "web" {
   vpc_security_group_ids = ["${var.SECURITYGROUP}"]
 
   tags {
-    Name = "HelloWorld"
+    Name = "Karel"
   }
   
   user_data = "${data.template_file.user_data.rendered}"
