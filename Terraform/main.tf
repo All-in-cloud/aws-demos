@@ -12,7 +12,7 @@ resource "aws_instance" "web" {
   vpc_security_group_ids = ["${var.SECURITYGROUP}"]
 
   tags {
-    Name = "Karel"
+    Name = "David"
   }
   
   user_data = "${data.template_file.user_data.rendered}"
