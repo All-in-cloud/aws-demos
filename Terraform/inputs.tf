@@ -23,11 +23,20 @@ data "aws_ami" "amazonlinux" {
 variable "SUBNET" {
   type        = "string"
   description = "(Mandatory) Subnet to deploy within."
-  default     = "yoursubnet"
+  default     = "subnet-4dabca00"
 }
 
 variable "SECURITYGROUP" {
   type        = "string"
   description = "Open ports on the instance."
-  default     = "sg-0fcb64bc759982301"
+  default     = "sg-0cab3313a2666f81a"
+}
+
+## User Data for kickstart the app on ec2
+
+data "template_file" "user_data" {
+  template = "${file("advanced.txt")}"
+  # vars {
+  #   name = "${var.name}"
+  # }
 }
